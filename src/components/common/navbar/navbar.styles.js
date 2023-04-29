@@ -26,25 +26,41 @@ export const NavigationContainer = styled.div`
   }
 
   nav {
-    align-self: flex-end;
-    ul {
-      list-style: none;
-      display: flex;
-      gap: 5rem;
-    }
-
     a {
       margin-top: 20px;
       text-decoration: none;
       font-size: 1.6rem;
       color: #5a5a5a;
-      margin-bottom: 1.8rem;
-      align-self: flex-end;
+
+      margin-right: 5rem;
+
+      height: 42px;
+      display: inline-block;
     }
+
     .active {
       border-bottom: 2px solid #627eea;
       color: #627eea;
       font-weight: 600;
+
+      text-align: center;
     }
+  }
+  .mobile-menu {
+    display: none;
+  }
+
+  /**************************/
+  /* BELOW 944px (Tablets) */
+  /**************************/
+  @media (max-width: 59em) {
+    background-color: red;
+  }
+
+  /**************************/
+  /* BELOW 544px (Phones) */
+  /**************************/
+  @media (max-width: 34em) {
+    background-color: aqua;
   }
 `;
