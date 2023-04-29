@@ -23,6 +23,7 @@ export const NavigationContainer = styled.div`
     color: #fff;
     font-family: inherit;
     padding: 0.8rem 1.6rem;
+    cursor: pointer;
   }
 
   nav {
