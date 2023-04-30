@@ -1,4 +1,4 @@
-### NeoFi Frontend
+### NeoFi Frontend -WIP
 
 This project is a UI implementation based on the given design using HTML, CSS, and JavaScript. It includes a first page with a real-time token value display and a second page with a token selector, real-time price display, and INR investment amount estimator.
 
