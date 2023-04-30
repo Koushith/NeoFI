@@ -18,10 +18,11 @@ export const FormContainer = styled.div`
       background: #1c1731;
       padding: 10px;
       border-radius: 50%;
+      border: 6px solid #040406;
     }
   }
   .inner {
-    padding: 4rem;
+    padding: 0 4rem 4rem 4rem;
   }
 `;
 

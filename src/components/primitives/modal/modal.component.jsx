@@ -19,6 +19,11 @@ const ModalWrapper = styled.div`
   background-color: #fff;
   padding: 2rem;
   border-radius: 5px;
+  @media screen and (max-width: 768px) {
+    width: 90%;
+    max-width: 500px;
+    padding: 1rem;
+  }
 `;
 
 const ModalHeader = styled.div`
