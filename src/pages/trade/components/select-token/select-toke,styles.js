@@ -8,7 +8,7 @@ export const StyledSelcect = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    cursor: pointer;
     .left {
       display: flex;
       align-items: center;

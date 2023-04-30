@@ -1,10 +1,17 @@
-import { Button, Input } from "../../../../components";
+import { useState } from "react";
+import { Button, Input, Modal } from "../../../../components";
 import { SlectToken } from "../select-token/select-token";
 import { FormContainer, Spacer } from "./trade-form.styles";
 
 export const TradeForm = () => {
   return (
     <FormContainer className="form-container">
+      <div className="token-icon">
+        <img
+          src="https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530be6e374711a8554f31b17e4cb92c25fa5/svg/color/eth.svg"
+          alt="colin"
+        />
+      </div>
       <div className="inner">
         {/* token */}
 

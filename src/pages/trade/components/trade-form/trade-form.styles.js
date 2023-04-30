@@ -7,12 +7,19 @@ export const FormContainer = styled.div`
   border-radius: 1.8rem;
   border: 1px solid rgba(110, 86, 248, 0.25);
 
-  /* border-image-source: linear-gradient(
-    180deg,
-    #46425e 0%,
-    rgba(0, 0, 0, 0) 100%
-  ); */
+  .token-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-40px);
 
+    img {
+      width: 70px;
+      background: #1c1731;
+      padding: 10px;
+      border-radius: 50%;
+    }
+  }
   .inner {
     padding: 4rem;
   }
