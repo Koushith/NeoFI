@@ -16,7 +16,8 @@ This project is a UI implementation based on the given design using HTML, CSS, a
 
 - Library - React
 - StateManagement - ContextAPI
-- webSockts
+- React Router Dom
+- WebSockets
 - VanillaCSS - StyledComponent helper
 - Binance API
 
