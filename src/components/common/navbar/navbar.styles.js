@@ -78,6 +78,7 @@ export const NavigationContainer = styled.div`
     max-width: 1276px;
     margin: 0 auto;
     height: 6.9rem;
+    padding: 0 1.2rem;
   }
   .logo {
     width: 12rem;
@@ -150,6 +151,7 @@ export const NavigationContainer = styled.div`
 
     .wrapper {
       margin: 0 1.2rem;
+      padding: 0;
     }
 
     .mobile-menu {
@@ -169,6 +171,7 @@ export const NavigationContainer = styled.div`
 
     .wrapper {
       margin: 0 1.2rem;
+      padding: 0;
     }
 
     .connect-btn {

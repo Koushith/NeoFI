@@ -1,6 +1,6 @@
 ### NeoFi Frontend -WIP
 
-This project is a UI implementation based on the given design using HTML, CSS, and JavaScript. It includes a first page with a real-time token value display and a second page with a token selector, real-time price display, and INR investment amount estimator.
+This project is a UI implementation based on the given design using ReactJS. It includes a first page with a real-time token value display and a second page with a token selector, real-time price display, and INR investment amount estimator.
 
 ### Live Application-
 
@@ -18,7 +18,7 @@ This project is a UI implementation based on the given design using HTML, CSS, a
 - StateManagement - ContextAPI
 - React Router Dom
 - WebSockets
-- VanillaCSS - StyledComponent helper
+- VanillaCSS - StyledComponent helper -Responsive Design
 - Binance API
 
 #### Installation
@@ -28,6 +28,7 @@ To run the project, download or clone the repository and open the index.html fil
 ```bash
 git clone git@github.com:Koushith/NeoFI.git
 cd NeoFi-frontend-developer-round-1-assignment
+npm start
 ```
 
 #### Usage
