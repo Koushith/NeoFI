@@ -12,7 +12,7 @@ export const CoinContext = createContext(null);
 export const CoinProvider = (props) => {
   const { children } = props;
 
-  const [selectedCoin, setSelectedCoin] = useState("BTC");
+  const [selectedCoin, setSelectedCoin] = useState("MATIC");
 
   const [socketUrl, setSocketUrl] = useState(
     `wss://stream.binance.com:9443/ws/${String(
