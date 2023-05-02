@@ -37,6 +37,14 @@ export const CoinProvider = (props) => {
   );
 
   useEffect(() => {
+    setSocketUrl(
+      `wss://stream.binance.com:9443/ws/${String(
+        selectedCoin
+      ).toLowerCase()}usdt@trade`
+    );
+  }, [selectedCoin]);
+
+  useEffect(() => {
     if (lastMessage?.data) {
       setCoinPrice(JSON.parse(lastMessage?.data));
     }

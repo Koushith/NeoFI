@@ -4,6 +4,7 @@ import { SlectToken } from "../select-token/select-token";
 import { SearchCoins } from "../search-coins/search-coins.component";
 import { FormContainer } from "./trade-form.styles";
 import { useCoin } from "../../../../context";
+import { usdToInr } from "../../../../utils";
 
 export const TradeForm = () => {
   const [showModal, setShowModal] = useState(false);
@@ -21,9 +22,20 @@ export const TradeForm = () => {
     setSelectedCoin,
   } = useCoin();
 
+  const onChangeHandler = (e) => {
+    setInvestingAmount(e.target.value);
+  };
+
   useEffect(() => {
-    // alert("rannnnnnnnnnnnnn");
-  }, [selectedCoin]);
+    // setEstimatedReturn();
+    /**
+     * INR Value = USDT Value * USDT/INR Exchange Rate
+     */
+
+    const coinPriceInINR = usdToInr(coinPrice?.p); // Convert coinPrice from USDT to INR
+    const estimatedReturn = (investingAmount * coinPriceInINR) / 87; // Calculate estimated return
+    setEstimatedReturn(parseFloat(estimatedReturn).toFixed(2)); // Round off estimated return to 2 decimal places and set it in state
+  }, [coinPrice, investingAmount]);
   // const { coinPrice } = useCoin();
   console.log("render from tade form pagee component.........");
   return (
@@ -50,10 +62,11 @@ export const TradeForm = () => {
           placeHolder="0.00"
           rightValue="INR"
           value={investingAmount}
+          onChange={(e) => onChangeHandler(e)}
         />
         <Spacer />
         <Input
-          label="Estimate Number of ETH You will Get"
+          label={`Estimate Number of ${selectedCoin} You will Get`}
           disabled
           placeHolder="0.00"
           value={estimatedReturn}
