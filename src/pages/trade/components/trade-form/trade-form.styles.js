@@ -24,6 +24,16 @@ export const FormContainer = styled.div`
   .inner {
     padding: 0 4rem 4rem 4rem;
   }
+
+  /**************************/
+  /* BELOW 544px (Phones) */
+  /**************************/
+  @media (max-width: 34em) {
+    margin: 5rem 1rem;
+    .inner {
+      padding: 0 2rem 2rem 2rem;
+    }
+  }
 `;
 
 export const Spacer = styled.div`
