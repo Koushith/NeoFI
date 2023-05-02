@@ -21,7 +21,7 @@ export const NavBar = () => {
         <div className="mobile-menu">
           {open ? (
             <i
-              class="fa-sharp fa-solid fa-xmark"
+              className="fa-sharp fa-solid fa-xmark"
               onClick={() => setOpen(true)}
             ></i>
           ) : (

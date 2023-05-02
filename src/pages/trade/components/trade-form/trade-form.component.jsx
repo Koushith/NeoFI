@@ -1,21 +1,33 @@
 import { useState } from "react";
-import { Button, Input, Modal } from "../../../../components";
+import { Button, Input, Modal, Spacer } from "../../../../components";
 import { SlectToken } from "../select-token/select-token";
-import { FormContainer, Spacer } from "./trade-form.styles";
+import { SearchCoins } from "../search-coins/search-coins.component";
+import { FormContainer } from "./trade-form.styles";
+import { useCoin } from "../../../../context";
 
 export const TradeForm = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleModalClose = () => {
+    setShowModal(false);
+  };
+
+  const { coinPrice, setCoinPrice } = useCoin();
+
+  console.log("test", coinPrice);
   return (
     <FormContainer className="form-container">
       <div className="token-icon">
-        <img
-          src="https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530be6e374711a8554f31b17e4cb92c25fa5/svg/color/eth.svg"
-          alt="colin"
-        />
+        <img src="https://cryptoicons.org/api/color/bnb/600" alt="colin" />
       </div>
       <div className="inner">
         {/* token */}
 
-        <SlectToken />
+        <SlectToken
+          onClick={() => {
+            setShowModal(true);
+          }}
+        />
         <Spacer />
         <Input
           label="Amount you want to invest"
@@ -33,6 +45,12 @@ export const TradeForm = () => {
         <Spacer />
         <Button text="Buy" variant="large" onClick={() => alert(":")} />
       </div>
+
+      {showModal && (
+        <Modal title="Example Modal" onClose={handleModalClose}>
+          <SearchCoins />
+        </Modal>
+      )}
     </FormContainer>
   );
 };

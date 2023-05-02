@@ -9,13 +9,17 @@
     "@web3modal/ethereum": "^2.3.7",
     "@web3modal/react": "^2.3.7",
     "ethers": "^5.7.2",
+    "i": "^0.3.7",
+    "npm": "^9.6.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.11.0",
     "react-scripts": "5.0.1",
+    "react-use-websocket": "^3.0.0",
     "styled-components": "^5.3.10",
     "wagmi": "^0.12.12",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "websocket": "^1.0.34"
   },
   "scripts": {
     "start": "react-scripts start",

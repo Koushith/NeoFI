@@ -13,7 +13,6 @@ export const EarnPage = () => {
       <button
         onClick={() => {
           setShowModal(true);
-          alert("cleic");
         }}
       >
         Open Modal
