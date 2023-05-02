@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
-import { AboutPage, EarnPage, SupportPage, TradePage } from "../pages";
 import { App } from "../App";
+import { AboutPage, EarnPage, SupportPage, TradePage } from "../pages";
 import { ROUTE_PATHS } from "../utils/constants";
 
 export const routeConfig = createBrowserRouter([

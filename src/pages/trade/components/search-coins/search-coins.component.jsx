@@ -212,6 +212,7 @@ export const SearchCoins = ({ modal }) => {
           <>
             {filteredCoin?.slice(0, 20).map((c, index) => (
               <Coin
+                key={index}
                 coinDetails={c}
                 isSelected={selectedItem === c}
                 onClick={() => handleClick(c)}
