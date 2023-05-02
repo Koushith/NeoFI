@@ -5,7 +5,7 @@ import {
   useEffect,
   useContext,
 } from "react";
-import useWebSocket, { ReadyState } from "react-use-websocket";
+import useWebSocket from "react-use-websocket";
 
 export const CoinContext = createContext(null);
 
@@ -13,15 +13,12 @@ export const CoinProvider = (props) => {
   const { children } = props;
 
   const [selectedCoin, setSelectedCoin] = useState("MATIC");
-
   const [socketUrl, setSocketUrl] = useState(
     `wss://stream.binance.com:9443/ws/${String(
       selectedCoin
     ).toLowerCase()}usdt@trade`
   );
   const [coinPrice, setCoinPrice] = useState(null);
-
-  const [loading, setLoading] = useState(false);
 
   const getSocketUrl = useCallback(() => {
     return new Promise((resolve) => {
@@ -31,10 +28,7 @@ export const CoinProvider = (props) => {
     });
   }, []);
 
-  const { sendMessage, lastMessage, readyState, getWebSocket } = useWebSocket(
-    socketUrl,
-    getSocketUrl
-  );
+  const { lastMessage, readyState } = useWebSocket(socketUrl, getSocketUrl);
 
   useEffect(() => {
     setSocketUrl(
@@ -50,18 +44,9 @@ export const CoinProvider = (props) => {
     }
   }, [lastMessage, readyState]);
 
-  const connectionStatus = {
-    [ReadyState.CONNECTING]: "Connecting",
-    [ReadyState.OPEN]: "Open",
-    [ReadyState.CLOSING]: "Closing",
-    [ReadyState.CLOSED]: "Closed",
-    [ReadyState.UNINSTANTIATED]: "Uninstantiated",
-  }[readyState];
-
   const values = {
     coinPrice,
     setCoinPrice,
-    loading,
     selectedCoin,
     setSelectedCoin,
   };

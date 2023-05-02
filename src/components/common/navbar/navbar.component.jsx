@@ -1,8 +1,8 @@
-import Logo from "../../../assets/logos/neofi-logo.svg";
-import { NavigationContainer } from "./navbar.styles";
-import { ROUTE_PATHS } from "../../../utils";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import { NavigationContainer } from "./navbar.styles";
+import { ROUTE_PATHS } from "../../../utils";
+import Logo from "../../../assets/logos/neofi-logo.svg";
 
 export const NavBar = () => {
   const [open, setOpen] = useState(false);
