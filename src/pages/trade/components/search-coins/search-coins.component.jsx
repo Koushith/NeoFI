@@ -146,7 +146,6 @@ export const SearchCoins = ({ modal }) => {
     if (selectedItem === item) {
       setSelectedItem(null);
     } else {
-      console.log("selected item", item);
       setSelectedItem(item);
       setSelectedCoin(item);
     }
@@ -191,18 +190,13 @@ export const SearchCoins = ({ modal }) => {
     item.toUpperCase().includes(searchQuery.toUpperCase())
   );
 
-  console.log("filtered coiunm", filteredCoin);
-
   const searchHandler = () => {
     const filtered = allCoins.filter((i) => i === searchQuery);
-    console.log("filtered", filtered);
   };
 
   useEffect(() => {
     searchHandler();
   }, [searchQuery]);
-
-  console.log("render rom search.....................");
 
   return (
     <SearchCoinsContainer>

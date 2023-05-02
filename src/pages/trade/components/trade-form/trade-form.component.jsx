@@ -26,18 +26,6 @@ export const TradeForm = () => {
     setInvestingAmount(e.target.value);
   };
 
-  // useEffect(() => {
-  //   // setEstimatedReturn();
-  //   /**
-  //    * INR Value = USDT Value * USDT/INR Exchange Rate
-  //    *
-  //    */
-
-  //   const coinPriceInINR = usdToInr(coinPrice?.p); // Convert coinPrice from USDT to INR
-  //   const estimatedReturn = investingAmount / coinPriceInINR; // Calculate estimated return
-  //   setEstimatedReturn(parseFloat(estimatedReturn).toFixed(2)); // Round off estimated return to 2 decimal places and set it in state
-  // }, [coinPrice, investingAmount]);
-
   useEffect(() => {
     const coinPriceInUSDT = coinPrice?.p; // Get the current price of the selected coin in USDT
     const usdtAmount = investingAmount / usdToInr(1); // Convert the investing amount from INR to USDT
@@ -47,8 +35,7 @@ export const TradeForm = () => {
       : parseFloat(numberOfTokens).toFixed(2); // Round off number of tokens to 2 decimal places and handle NaN values
     setEstimatedTokens(roundedTokens); // Set the estimated number of tokens in state
   }, [coinPrice, investingAmount]);
-  // const { coinPrice } = useCoin();
-  console.log("render from tade form pagee component.........");
+
   return (
     <FormContainer className="form-container">
       <div className="token-icon">
