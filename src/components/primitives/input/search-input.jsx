@@ -1,7 +1,7 @@
 import {
   Input,
   InputContainer,
-  SearchCoinsContainer,
+  SearchIcon,
 } from "../../../pages/trade/components/search-coins/search-coins.styles";
 import Search from "../../../assets/icons/search-icon.svg";
 
@@ -14,7 +14,7 @@ export const SearchInput = ({ value, onChange }) => {
         onChange={onChange}
         placeholder="Search"
       />
-      <SearchCoinsContainer src={Search} width={18} />
+      <SearchIcon src={Search} width={18} />
     </InputContainer>
   );
 };
