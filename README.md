@@ -16,7 +16,7 @@ This project is a UI implementation based on the given design using HTML, CSS, a
 To run the project, download or clone the repository and open the index.html file in your browser.
 
 ```bash
-git clone https://github.com/your_username/NeoFi-frontend-developer-round-1-assignment.git
+git clone git@github.com:Koushith/NeoFI.git
 cd NeoFi-frontend-developer-round-1-assignment
 ```
 
