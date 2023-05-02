@@ -2,10 +2,9 @@
 
 This project is a UI implementation based on the given design using HTML, CSS, and JavaScript. It includes a first page with a real-time token value display and a second page with a token selector, real-time price display, and INR investment amount estimator.
 
-### Live Application- 
+### Live Application-
 
 - You can check the deployed app here - https://neo-fi.vercel.app/
-
 
 ### ScreenShots
 
@@ -13,7 +12,13 @@ This project is a UI implementation based on the given design using HTML, CSS, a
 
 ![image](https://user-images.githubusercontent.com/30016242/235715745-3fa13b83-0951-41f5-b1dc-ab30bc0f0522.png)
 
+#### Tech
 
+- Library - React
+- StateManagement - ContextAPI
+- webSockts
+- VanillaCSS - StyledComponent helper
+- Binance API
 
 #### Installation
 
