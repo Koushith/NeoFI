@@ -2,6 +2,15 @@
 
 This project is a UI implementation based on the given design using HTML, CSS, and JavaScript. It includes a first page with a real-time token value display and a second page with a token selector, real-time price display, and INR investment amount estimator.
 
+
+### ScreenShots
+
+![image](https://user-images.githubusercontent.com/30016242/235715473-0a444661-7af3-40ec-805e-9fdd70046910.png)
+
+![image](https://user-images.githubusercontent.com/30016242/235715745-3fa13b83-0951-41f5-b1dc-ab30bc0f0522.png)
+
+
+
 #### Installation
 
 To run the project, download or clone the repository and open the index.html file in your browser.
