@@ -59,4 +59,18 @@ export const ModalCloseButton = styled.button`
 
 export const ModalContent = styled.div`
   padding: 0 4.5rem 4.5rem 4.5rem;
+
+  /**************************/
+  /* BELOW 944px (Tablets) */
+  /**************************/
+  @media (max-width: 59em) {
+    padding: 0;
+  }
+
+  /**************************/
+  /* BELOW 544px (Phones) */
+  /**************************/
+  @media (max-width: 34em) {
+    padding: 0;
+  }
 `;
