@@ -9,6 +9,7 @@ import {
 } from "./modal.styles";
 
 export const Modal = ({ title, onClose, children }) => {
+  console.log("render rom modal component.....................");
   return (
     <ModalOverlay>
       <ModalWrapper>

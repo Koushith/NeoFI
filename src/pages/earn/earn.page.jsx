@@ -7,6 +7,7 @@ export const EarnPage = () => {
   const handleModalClose = () => {
     setShowModal(false);
   };
+  console.log("render from earn page");
   return (
     <>
       <h1 style={{ textAlign: "center", fontSize: 18, margin: 20 }}>Earn</h1>

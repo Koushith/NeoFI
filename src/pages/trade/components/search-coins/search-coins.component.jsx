@@ -3,6 +3,8 @@ import CheckMark from "../../../../assets/icons/selected.svg";
 
 import Search from "../../../../assets/icons/search-icon.svg";
 import { useCoin } from "../../../../context";
+import { useEffect, useState } from "react";
+import { Button } from "../../../../components";
 
 const InputContainer = styled.div`
   position: relative;
@@ -48,7 +50,7 @@ const SearchInput = ({ value, onChange }) => {
 
 const CoinContainer = styled.div`
   /* background: #1b192d; */
-  background: transparent;
+  background: ${(props) => (props.isSelected ? "" : "#1b192d")};
   border-radius: 2px;
   display: flex;
   align-items: center;
@@ -77,10 +79,13 @@ const CoinContainer = styled.div`
 `;
 
 const Coin = (props) => {
-  const { coinDetails } = props;
+  const { coinDetails, index, isSelected, onClick } = props;
 
   return (
-    <CoinContainer>
+    <CoinContainer
+      onClick={onClick}
+      style={{ background: isSelected ? "#1b192d" : "transparent" }}
+    >
       <div className="left">
         <img
           src={`https://coinicons-api.vercel.app/api/icon/${String(
@@ -93,7 +98,8 @@ const Coin = (props) => {
       </div>
 
       <div className="right">
-        <img src={CheckMark} alt="check-mark" />
+        {/* <img src={CheckMark} alt="check-mark" /> */}
+        {isSelected && <img src={CheckMark} alt="check-mark" />}
       </div>
     </CoinContainer>
   );
@@ -125,18 +131,108 @@ export const SearchCoinsContainer = styled.div`
   }
 `;
 
-export const SearchCoins = () => {
-  const { allCoins } = useCoin();
+export const SearchCoins = ({ modal }) => {
+  const { selectedCoin, setSelectedCoin } = useCoin();
 
-  if (!allCoins) return <h1>No Coins</h1>;
+  const [searchQuery, setSearchQuery] = useState("");
+  const [allCoins, setAllCoins] = useState([]);
+
+  const [loading, setLoading] = useState(false);
+
+  const [selectedItem, setSelectedItem] = useState(null);
+
+  const handleClick = (item) => {
+    setSelectedCoin(item);
+    if (selectedItem === item) {
+      setSelectedItem(null);
+    } else {
+      console.log("selected item", item);
+      setSelectedItem(item);
+      setSelectedCoin(item);
+    }
+  };
+
+  const handelSubmitBtn = () => {
+    alert(selectedCoin);
+    setSelectedCoin(selectedItem);
+    modal(false);
+  };
+
+  async function fetchCoins() {
+    setLoading(true);
+    const binanceUrl = "https://api.binance.com/api/v3/exchangeInfo";
+    return fetch(binanceUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        const coins = new Set();
+        data.symbols.forEach((symbol) => {
+          coins.add(symbol.baseAsset);
+          coins.add(symbol.quoteAsset);
+        });
+        setLoading(false);
+
+        return [...coins];
+      })
+      .catch((error) => {
+        console.error("Error retrieving list of coins:", error);
+        return [];
+      });
+  }
+
+  useEffect(() => {
+    fetchCoins().then((coins) => {
+      if (coins) {
+        setAllCoins(coins);
+      }
+    });
+  }, []);
+
+  const filteredCoin = allCoins.filter((item) =>
+    item.toUpperCase().includes(searchQuery.toUpperCase())
+  );
+
+  console.log("filtered coiunm", filteredCoin);
+
+  const searchHandler = () => {
+    const filtered = allCoins.filter((i) => i === searchQuery);
+    console.log("filtered", filtered);
+  };
+
+  useEffect(() => {
+    searchHandler();
+  }, [searchQuery]);
+
+  console.log("render rom search.....................");
+
   return (
     <SearchCoinsContainer>
-      <SearchInput />
-      <h1>showing results of {allCoins.length}</h1>
+      <SearchInput
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value.toUpperCase())}
+      />
+
       <div className="result-list">
-        {allCoins &&
-          allCoins.map((c, index) => <Coin coinDetails={c} key={index} />)}
+        {loading ? (
+          <h1>Loading</h1>
+        ) : (
+          <>
+            {filteredCoin?.slice(0, 20).map((c, index) => (
+              <Coin
+                coinDetails={c}
+                isSelected={selectedItem === c}
+                onClick={() => handleClick(c)}
+              />
+            ))}
+          </>
+        )}
       </div>
+      {!!selectedItem && (
+        <Button
+          text="Confirm"
+          onClick={handelSubmitBtn}
+          style={{ width: "100%", marginTop: 22 }}
+        />
+      )}
     </SearchCoinsContainer>
   );
 };
